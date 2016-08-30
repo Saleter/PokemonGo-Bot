@@ -95,7 +95,7 @@ namespace PokemonGo.RocketAPI.Logic
                     await functionExecutedWhileWalking();// look for pokemon 
 
                 await RandomHelper.RandomDelay(500, 600);
-            } while (LocationUtils.CalculateDistanceInMeters(sourceLocation, targetLocation) >= 30);
+            } while (LocationUtils.CalculateDistanceInMeters(sourceLocation, targetLocation) >= 10);
             return result;
         }
 
