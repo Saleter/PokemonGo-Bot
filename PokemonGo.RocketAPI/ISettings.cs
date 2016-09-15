@@ -53,6 +53,9 @@ namespace PokemonGo.RocketAPI
 
         bool pokevision { get; }
 
+        int CheckPokemonId { get; }
+        bool IsNoGUI { get; }
+
         bool Language { get; }
 
 

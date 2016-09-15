@@ -60,6 +60,9 @@ namespace PokemonGo.RocketAPI.Console
 
         public bool Language => Globals.gerNames;
 
+        public int CheckPokemonId => Globals.CheckPokemonId;
+        public bool IsNoGUI => Globals.IsNoGUI;
+
         public string SelectedLanguage => Globals.settingsLanguage;
         /*
                  string UseProxyHost { get; set; }

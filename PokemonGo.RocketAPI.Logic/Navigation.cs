@@ -38,11 +38,11 @@ namespace PokemonGo.RocketAPI.Logic
         public async Task<PlayerUpdateResponse> HumanLikeWalking(GeoCoordinate targetLocation,
         double walkingSpeedInKilometersPerHour, Func<Task> functionExecutedWhileWalking)
         { 
-            var randomFactor = 0.5f;
-            var randomMin = (int)(walkingSpeedInKilometersPerHour * (1 - randomFactor));
-            var randomMax = (int)(walkingSpeedInKilometersPerHour * (1 + randomFactor));
-            var RandomWalkSpeed = RandomDevice.Next(randomMin, randomMax);
-            walkingSpeedInKilometersPerHour = RandomWalkSpeed;
+            //var randomFactor = 0.5f;
+            //var randomMin = (int)(walkingSpeedInKilometersPerHour * (1 - randomFactor));
+            //var randomMax = (int)(walkingSpeedInKilometersPerHour * (1 + randomFactor));
+            //var RandomWalkSpeed = RandomDevice.Next(randomMin, randomMax);
+            //walkingSpeedInKilometersPerHour = RandomWalkSpeed;
 
             var speedInMetersPerSecond = walkingSpeedInKilometersPerHour / 3.6;
         
@@ -72,14 +72,14 @@ namespace PokemonGo.RocketAPI.Logic
                 sourceLocation = new GeoCoordinate(_client.CurrentLatitude, _client.CurrentLongitude);
                 var currentDistanceToTarget = LocationUtils.CalculateDistanceInMeters(sourceLocation, targetLocation);
 
-                if (currentDistanceToTarget < 40)
-                {
-                    if (speedInMetersPerSecond > SpeedDownTo)
-                    {
-                        Logger.ColoredConsoleWrite(ConsoleColor.DarkCyan, $"We are within 40 meters of the target. Slowing down to ~10 km/h to not pass the target.");
-                        speedInMetersPerSecond = SpeedDownTo;
-                    }
-                }
+                //if (currentDistanceToTarget < 40)
+                //{
+                //    if (speedInMetersPerSecond > SpeedDownTo)
+                //    {
+                //        Logger.ColoredConsoleWrite(ConsoleColor.DarkCyan, $"We are within 40 meters of the target. Slowing down to ~10 km/h to not pass the target.");
+                //        speedInMetersPerSecond = SpeedDownTo;
+                //    }
+                //}
 
                 nextWaypointDistance = Math.Min(currentDistanceToTarget, millisecondsUntilGetUpdatePlayerLocationResponse / 1000 * speedInMetersPerSecond);
                 nextWaypointBearing = LocationUtils.DegreeBearing(sourceLocation, targetLocation);

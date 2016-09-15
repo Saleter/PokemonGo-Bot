@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Translation\Translation.cs" />
     <Compile Include="Translation\TranslationHandler.cs" />
+    <Compile Include="Translation\TranslationPokemon.cs" />
     <Compile Include="Utils\ApiFailureStrat.cs" />
     <Compile Include="Utils\BotStats.cs" />
     <Compile Include="Utils\GeoUtils.cs" />

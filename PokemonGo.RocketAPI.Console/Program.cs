@@ -44,6 +44,11 @@ namespace PokemonGo.RocketAPI.Console
 
                         cmdCoords = arg;
                     }
+                    if(arg.StartsWith("#"))
+                    {
+                        string _PokemonId = arg.Replace("#", "");
+                        Globals.CheckPokemonId = int.Parse(_PokemonId);
+                    }
                 }
             }
 
@@ -51,6 +56,8 @@ namespace PokemonGo.RocketAPI.Console
             if (args != null && args.Length > 0 && args[0].Contains("-nogui"))
             {
                 Logger.ColoredConsoleWrite(ConsoleColor.Red, "You added -nogui! If you didnt setup correctly with the GUI. It wont work.");
+                Globals.IsNoGUI = true; //«DGUI¼Ò¦¡
+
                 foreach (PokemonId pokemon in Enum.GetValues(typeof(PokemonId)))
                 {
                     if (pokemon.ToString() != "Missingno")
@@ -151,19 +158,19 @@ namespace PokemonGo.RocketAPI.Console
                                 case 22:
                                     Globals.keepPokemonsThatCanEvolve = bool.Parse(line);
                                     break;
+                                //case 23:
+                                //    Globals.pokevision = bool.Parse(line);
+                                //    break;
                                 case 23:
-                                    Globals.pokevision = bool.Parse(line);
-                                    break;
-                                case 24:
                                     Globals.useluckyegg = bool.Parse(line);
                                     break;
-                                case 25:
+                                case 24:
                                     Globals.autoIncubate = bool.Parse(line);
                                     break;
-                                case 26:
+                                case 25:
                                     Globals.useBasicIncubators = bool.Parse(line);
                                     break;
-                                case 27:
+                                case 26:
                                     Globals.TransferFirstLowIV = bool.Parse(line);
                                     break;
                                 //case 28:
@@ -449,5 +456,8 @@ namespace PokemonGo.RocketAPI.Console
         public static string settingsLanguage = "en";
 
         public static Logic.LogicInfoObservable infoObservable = new Logic.LogicInfoObservable();
+
+        public static int CheckPokemonId = 0;
+        public static bool IsNoGUI = false;
     }
 }

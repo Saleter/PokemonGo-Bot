@@ -299,6 +299,7 @@
     <Compile Include="Settings\Master\TypeEffectiveSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Data\AssetDigestEntry.proto" />
     <None Include="Data\Battle\BattleAction.proto" />
     <None Include="Data\Battle\BattleActionType.proto" />

@@ -79,7 +79,7 @@ namespace PokemonGo.RocketAPI.Console
 
         private void GUI_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("The Bot isn't done! Be aware that you can get banned!");
+            //MessageBox.Show("The Bot isn't done! Be aware that you can get banned!");
             _clientSettings = new Settings();
             // Create missing Files
             Directory.CreateDirectory(Program.path);
@@ -124,18 +124,18 @@ namespace PokemonGo.RocketAPI.Console
 
             // Version Infoooo
             groupBox9.Text = "Your Version: " + Assembly.GetExecutingAssembly().GetName().Version + " | Newest: " + Program.getNewestVersion();
-            if (Program.getNewestVersion() > Assembly.GetExecutingAssembly().GetName().Version)
-            {
-                DialogResult dialogResult = MessageBox.Show("There is an Update on Github. do you want to open it ?", "Newest Version: " + Program.getNewestVersion(), MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    Process.Start("https://github.com/Ar1i/PokemonGo-Bot");
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    //nothing   
-                }
-            }
+            //if (Program.getNewestVersion() > Assembly.GetExecutingAssembly().GetName().Version)
+            //{
+            //    DialogResult dialogResult = MessageBox.Show("There is an Update on Github. do you want to open it ?", "Newest Version: " + Program.getNewestVersion(), MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        Process.Start("https://github.com/Ar1i/PokemonGo-Bot");
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        //nothing   
+            //    }
+            //}
 
             comboBox1.DisplayMember = "Text";
             var types = new[] {
@@ -504,18 +504,18 @@ namespace PokemonGo.RocketAPI.Console
             }
             else                
                 Globals.speed = double.Parse(textBox6.Text.Replace(',', '.'), cords, NumberFormatInfo.InvariantInfo);
-            if (Globals.speed > 15)
-            {
-                DialogResult dialogResult = MessageBox.Show("The risk of being banned is significantly greater when using higher than human jogging speeds (e.g. > 15km/hr) Click 'No' to use ~10km/hr instead", "Are you sure you wish to set your speed to " + Globals.speed + "?", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    //user acknowledges speed risk; do nothing.
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    Globals.speed = double.Parse("9.5", cords, NumberFormatInfo.InvariantInfo);
-                }
-            }
+            //if (Globals.speed > 15)
+            //{
+            //    DialogResult dialogResult = MessageBox.Show("The risk of being banned is significantly greater when using higher than human jogging speeds (e.g. > 15km/hr) Click 'No' to use ~10km/hr instead", "Are you sure you wish to set your speed to " + Globals.speed + "?", MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        //user acknowledges speed risk; do nothing.
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        Globals.speed = double.Parse("9.5", cords, NumberFormatInfo.InvariantInfo);
+            //    }
+            //}
 
             if (textBox7.Text == string.Empty)
             {
@@ -983,20 +983,20 @@ namespace PokemonGo.RocketAPI.Console
             }
             else
             {
-                label2.Text = TranslationHandler.GetString("username", "Username :");
+                label2.Text = TranslationHandler.GetString("username", "帳號 :");
             }
 
-            label1.Text = TranslationHandler.GetString("accountType", "Account Type:");
+            label1.Text = TranslationHandler.GetString("accountType", "帳戶類型:");
             //label2.Text = TranslationHandler.getString("username", "Username:");
-            label3.Text = TranslationHandler.GetString("password", "Password:");
-            groupBox2.Text = TranslationHandler.GetString("locationSettings", "Location Settings");
-            label7.Text = TranslationHandler.GetString("speed", "Speed:");
-            label9.Text = TranslationHandler.GetString("moveRadius", "Move Radius:");
-            label10.Text = TranslationHandler.GetString("meters", "meters");
-            checkBox1.Text = TranslationHandler.GetString("startFromDefaultLocation", "Start from default location");
-            groupBox3.Text = TranslationHandler.GetString("botSettings", "Bot Settings");
+            label3.Text = TranslationHandler.GetString("password", "密碼:");
+            groupBox2.Text = TranslationHandler.GetString("locationSettings", "位置設置");
+            label7.Text = TranslationHandler.GetString("speed", "速度:");
+            label9.Text = TranslationHandler.GetString("moveRadius", "移動半徑:");
+            label10.Text = TranslationHandler.GetString("meters", "公尺");
+            checkBox1.Text = TranslationHandler.GetString("startFromDefaultLocation", "從預設位置開始");
+            groupBox3.Text = TranslationHandler.GetString("botSettings", "機器人設置");
             checkBox2.Text = TranslationHandler.GetString("autoTransferDoublePokemon", "Auto transfer double Pokemons");
-            label11.Text = TranslationHandler.GetString("maxDupPokemon", "Max. duplicate Pokemons");
+            label11.Text = TranslationHandler.GetString("maxDupPokemon", "Max. 重複 Pokemons");
             label12.Text = TranslationHandler.GetString("maxCPtransfer", "Max. CP to transfer:");
             label28.Text = TranslationHandler.GetString("maxIVtransfer", "Max. IV to transfer:");
             groupBox8.Text = TranslationHandler.GetString("telegramSettings", "Telegram Settings");
